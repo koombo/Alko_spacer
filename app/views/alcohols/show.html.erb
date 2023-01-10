@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @alcohol.name %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @alcohol.note %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @alcohol.alcohol_review.score %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @alcohol.alcohol_type.name %>
+</p>
+
+<%= link_to 'Edit', edit_alcohol_path(@alcohol) %> |
+<%= link_to 'Back', alcohols_path %>
