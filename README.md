@@ -1,24 +1,3 @@
-# README
+(Aplikacja tworzona w ramach nauki programowania)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Aplikacja umoliwia wystawienie oceny poszczególnym rodzajom alkoholi (piwo, wino, wódka, nalewka). Ponadto istnieje możliwość wstawienia krótkiej notatki. W przyszłości planowany jest rozwój aplikacji o możliwość logowania, a także wstawienia zdjęcia. Idealna aplikacja dla koneserów piw kraftowych lub win :) 
