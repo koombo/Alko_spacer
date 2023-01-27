@@ -1,24 +1,36 @@
 <p id="notice"><%= notice %></p>
+<div class="d-flex">
+  <% @alcohol.images.each do |image| %>
+    <%= image_tag image %>
+  <% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @alcohol.name %>
-</p>
 
-<p>
-  <strong>Note:</strong>
-  <%= @alcohol.note %>
-</p>
+  <div class="d-flex flex-column ms-3 mt-3 ">
+    <p>
+      <strong>Nazwa:</strong>
+      <%= @alcohol.name %>
+    </p>
 
-<p>
-  <strong>Score:</strong>
-  <%= @alcohol.alcohol_review.score %>
-</p>
+    <p>
+      <strong  >Notatka:</strong>
+      <%= @alcohol.note %>
+    </p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @alcohol.alcohol_type.name %>
-</p>
+    <p>
+      <strong>Ocena:</strong>
+      <%= @alcohol.alcohol_review&.score %>
+    </p>
 
-<%= link_to 'Edit', edit_alcohol_path(@alcohol) %> |
-<%= link_to 'Back', alcohols_path %>
+    <p>
+      <strong>Typ:</strong>
+      <%= @alcohol.alcohol_type&.name %>
+    </p>
+  </div>
+</div>
+
+
+
+<div class= "mt-5 d-flex justify-content-center ">
+  <%= link_to 'Edytuj', edit_alcohol_path(@alcohol), class: "btn btn-outline-warning me-2" %> 
+  <%= link_to 'Powrót', alcohols_path, class: "btn btn-outline-warning" %>
+</div>

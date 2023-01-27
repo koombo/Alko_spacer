@@ -2,5 +2,7 @@
 
 <%= render 'form', alcohol: @alcohol %>
 
-<%= link_to 'Show', @alcohol %> |
-<%= link_to 'Back', alcohols_path %>
+<div class= "mt-5 d-flex justify-content-end ">
+  <%= link_to 'Pokaż', @alcohol, class: "btn btn-outline-warning me-2" %> 
+  <%= link_to 'Powrót', alcohols_path, class: "btn btn-outline-warning" %>
+</div>
