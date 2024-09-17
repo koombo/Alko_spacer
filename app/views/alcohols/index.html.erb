@@ -1,33 +1,42 @@
-<p id="notice"><%= notice %></p>
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
 
-<h1>Alcohols</h1>
+    <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Note</th>
-      <th>Score</th>
-      <th>Type</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <h1>Ranking alkoholi</h1>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
 
-  <tbody>
-    <% @alcohols.each do |alcohol| %>
-      <tr>
-        <td><%= alcohol.name %></td>
-        <td><%= alcohol.note %></td>
-        <td><%= alcohol.alcohol_review.score %></td>
-        <td><%= alcohol.alcohol_type.name %></td>
-        <td><%= link_to 'Show', alcohol %></td>
-        <td><%= link_to 'Edit', edit_alcohol_path(alcohol) %></td>
-        <td><%= link_to 'Destroy', alcohol, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <body>
+    <table class="table ">
+      <thead>
+        <tr>
+          <th scope="col">Nazwa</th>
+          <th scope="col">Notatka</th>
+          <th scope="col">Ocena</th>
+          <th scope="col">Typ</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<br>
-
-<%= link_to 'New Alcohol', new_alcohol_path %>
+      <tbody>
+      <% @alcohols.each do |alcohol| %>
+        <tr>
+            <td><%= alcohol.name %></td>
+            <td><%= alcohol.note %></td>
+            <td><%= alcohol.alcohol_review&.score %></td>
+            <td><%= alcohol.alcohol_type&.name %></td>
+            <td><%= link_to 'Pokaż', alcohol, class: "btn btn-outline-warning me-2" %></td>
+            <td><%= link_to 'Edytuj', edit_alcohol_path(alcohol), class: "btn btn-outline-warning me-2" %></td>
+            <td><%= link_to 'Usuń', alcohol, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning me-2" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+    <%= link_to 'Nowy alkohol', new_alcohol_path, class: "btn btn-outline-warning me-2" %>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

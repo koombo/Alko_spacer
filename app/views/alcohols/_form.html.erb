@@ -11,32 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="input-group mb-3">
+    <%= form.label :name, class: "form-label pe-2 mt-1" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Nazwa trunku" %>
   </div>
 
-  <div class="field">
-    <%= form.label :note %>
-    <%= form.text_area :note %>
+  <div class="mb-3">
+    <%= form.label :note, class: "form-label" %>
+    <%= form.text_area :note, class: "form-control", placeholder: "wpisz notatke", rows: "8" %>
   </div>
 
-  <div class="field">
+  <div class="mb-3 d-flex flex-row" style= "width: 500px;" >
       <%= form.fields_for :alcohol_review, AlcoholReview.new do |alcohol_review_attributes|%>
-        <%= alcohol_review_attributes.label :score, "Rating:" %>
-        <%= alcohol_review_attributes.select :score, options_for_select(AlcoholReview.scores.map {|k, v| [k.humanize.capitalize, v]}) %>
+        <%= alcohol_review_attributes.label :score, {}, {class:"pe-2 mt-1"} %>
+        <%= alcohol_review_attributes.select(:score, options_for_select(AlcoholReview.scores.map {|k, v| [k.humanize.capitalize, k]}), {:include_blank => "Wybierz"}, {class: "form-select form-select-sm col-sm"}) %>
     <% end %> 
   </div> 
 
-  <div class="field">
+  <div class="mb-3 d-flex flex-row" style= "width: 500px;">
     <%= form.fields_for :alcohol_type, AlcoholType.new do |alcohol_type_attributes|%>
-      <%= alcohol_type_attributes.label :name, "Type:" %>
-      <%= alcohol_type_attributes.select :name, options_for_select(AlcoholType.names.map {|k, v| [k.humanize.capitalize, v]}) %>
+      <%= alcohol_type_attributes.label :name, {}, {class:"mt-1 me-2"} %>
+    <%= alcohol_type_attributes.select(:name, options_for_select(AlcoholType.names.map {|k, v| [k.humanize.capitalize, k]}),{:include_blank => "Wybierz"}, {class: "form-select form-select-sm col-sm"} )%>
     <% end %> 
   </div> 
 
+  <%= form.file_field :images, multiple: true %>
 
-  <div class="actions">
-    <%= form.submit %>
+
+  <div class="actions d-flex justify-content-center">
+    <%= form.submit "Zapisz", class: "btn btn-outline-warning mt-2" %>
   </div>
 <% end %>

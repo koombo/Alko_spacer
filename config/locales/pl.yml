@@ -1,0 +1,15 @@
+#poszukac w googlu how to translate model atributes
+pl:
+ activerecord:
+    attributes:
+      alcohol:
+        name: Nazwa
+        note: Notatka
+
+      alcohol_review:
+        alcohol: Alkohol
+        score: Ocena
+
+      alcohol_type:
+        alcohol: Alkohol
+        name: Typ alkoholu
